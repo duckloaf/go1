@@ -1,0 +1,70 @@
+<div class="home">
+    <div class="home_slider_container">
+        <div class="home_slider_background" style="background-image:url(assets/images/home_1.jpg)"></div>
+        <div class="home_slider_content">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="home_slider_subtitle">Course Finder</div>
+                        <div class="home_slider_form_container">
+                            <form action="#" id="home_search_form_1" class="home_search_form d-flex flex-lg-row flex-column align-items-center justify-content-between">
+                                <div class="d-flex flex-row align-items-center justify-content-start">
+                                    <input type="search" class="home_search_input" placeholder="Keyword Search" required="required" (input)="filter.next($event.target.value)">
+                                    <select class="dropdown_item_select home_search_input" #locationSearch (change)="onLocationSelected(locationSearch.value)">
+                                        <option value='' selected>Select Location</option>
+                                        <optgroup label="Cities">
+                                            <option *ngFor="let city of cities" value="city_{{city}}">{{city}}</option>
+                                        </optgroup>
+                                        <optgroup label="State">
+                                            <option *ngFor="let state of states" value="state_{{state}}">{{state}}</option>
+                                        </optgroup>
+                                        <optgroup label="Country">
+                                            <option *ngFor="let country of countries" value="country_{{country}}">{{country}}</option>
+                                        </optgroup>
+                                    </select>
+                                    <input type="search" class="home_search_input" placeholder="Date Search" required="required" id="date_search">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="courses">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container text-center">
+                    <h2 class="section_title">Popular Online Courses</h2>
+                    <div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="row courses_row">
+            <div class="col-lg-4 course_col" *ngFor="let course of courses; let i = index;">
+                <div class="course">
+                    <div class="course_image"><img [src]="'assets/images/co-' + (i + 1) + '.jpg'" alt=""></div>
+                    <div class="course_body">
+                        <h3 class="course_title">{{course.Title}}</h3>
+                        <div class="course_teacher">{{course.Location.City}}</div>
+                        <div class="course_text">
+                            <p>{{course.Description}}</p>
+                        </div>
+                    </div>
+                    <div class="course_footer">
+                        <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="course_info">
+                                <i class="fa fa-graduation-cap mr-2" aria-hidden="true"></i>
+                                <span>{{countSeats(course)}} Seat{{countSeats(course) == 1 ? '' : 's'}} Remaining</span>
+                            </div>
+                            <div class="course_price ml-auto" *ngIf="countSeats(course) > 0">{{formatTime(course)}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

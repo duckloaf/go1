@@ -1,0 +1,146 @@
+[
+    {
+    "Title": "Place 1",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor",
+    "Time": "2018-07-22T02:30:00.000Z",
+    "Image": "co-1.jpg",
+    "Location": {
+        "City": "Brisbane",
+        "State": "Queensland",
+        "Country": "Australia"
+    }
+    },
+    {
+    "Title": "Place 2",
+    "Description": "Mauris a diam maecenas sed enim ut sem viverra aliquet.",
+    "Time": "2018-07-24T02:30:00.000Z",
+    "Image": "co-2.jpg",
+    "Location": {
+        "City": "Cairns",
+        "State": "Queensland",
+        "Country": "Australia"
+    },
+    "AvailableSeats": [
+        {
+        "id": "W25"
+        },
+        {
+        "id": "B29"
+        },
+        {
+        "id": "B52"
+        }
+    ]
+    },
+    {
+    "Title": "Place 3",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor",
+    "Time": "2018-07-24T02:30:00.000Z",
+    "Image": "co-3.jpg",
+    "Location": {
+        "City": "Gold Coast",
+        "State": "Queensland",
+        "Country": "Australia"
+    },
+    "AvailableSeats": [
+        {
+        "id": "W25"
+        }
+    ]
+    },
+    {
+    "Title": "Place 4",
+    "Description": "Mauris a diam maecenas sed enim ut sem viverra aliquet.",
+    "Time": "2018-07-24T02:30:00.000Z",
+    "Image": "co-4.jpg",
+    "Location": {
+        "City": "Gold Coast",
+        "State": "Queensland",
+        "Country": "Australia"
+    },
+    "AvailableSeats": [
+        {
+        "id": "W25"
+        },
+        {
+        "id": "B29"
+        }
+    ]
+    },
+    {
+    "Title": "Place 5",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor",
+    "Time": "2018-07-24T02:30:00.000Z",
+    "Image": "co-5.jpg",
+    "Location": {
+        "City": "Gold Coast",
+        "State": "Queensland",
+        "Country": "Australia"
+    },
+    "AvailableSeats": [
+        {
+        "id": "W25"
+        },
+        {
+        "id": "B29"
+        }
+    ]
+    },
+    {
+    "Title": "Place 6",
+    "Description": "Mauris a diam maecenas sed enim ut sem viverra aliquet.",
+    "Time": "2018-07-24T02:30:00.000Z",
+    "Image": "co-6.jpg",
+    "Location": {
+        "City": "Gold Coast",
+        "State": "Queensland",
+        "Country": "Australia"
+    },
+    "AvailableSeats": [
+        {
+        "id": "W25"
+        },
+        {
+        "id": "B29"
+        }
+    ]
+    },
+    {
+    "Title": "Place 7",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor",
+    "Time": "2018-07-24T02:30:00.000Z",
+    "Image": "co-7.jpg",
+    "Location": {
+        "City": "Gold Coast",
+        "State": "Queensland",
+        "Country": "Australia"
+    },
+    "AvailableSeats": [
+        {
+        "id": "W25"
+        },
+        {
+        "id": "B29"
+        }
+    ]
+    },
+    {
+    "Title": "Place 8",
+    "Description": "Mauris a diam maecenas sed enim ut sem viverra aliquet.",
+    "Time": "2018-07-24T02:30:00.000Z",
+    "Image": "co-8.jpg",
+    "Location": {
+        "City": "Gold Coast",
+        "State": "Queensland",
+        "Country": "Australia"
+    },
+    "AvailableSeats": [
+        {
+        "id": "W25"
+        },
+        {
+        "id": "B29"
+        }
+    ]
+    }
+]
