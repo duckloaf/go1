@@ -1,0 +1,43 @@
+.course_title {
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	color: #384158;
+}
+.sidebar
+{
+	width: 100%;
+	padding-left: 30px;
+	padding-top: 30px;
+}
+.sidebar_section:not(:last-child)
+{
+	margin-bottom: 60px;
+}
+.sidebar_section_title
+{
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	color: #384158;
+	line-height: 0.75;
+}
+.feature:not(:last-child)
+{
+	margin-bottom: 1px;
+}
+.feature_title
+{
+	padding-left: 31px;
+}
+.feature_title i
+{
+	position: absolute;
+	top: calc(50% - 1px);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	left: 0;
+	font-size: 18px;
+	color: #14bdee;
+}

@@ -1,1 +1,105 @@
-<p>settings works!</p>
+<app-breadcrumbs
+    [page_name]="'Settings'">
+</app-breadcrumbs>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-success pull-right mb-4" type="button" (click)="addCourseInit()" data-toggle="modal" data-target="#editModal">Add New Course</button>
+            <table class="table table-image">
+                <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Event</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Seats</th>
+                    <th scope="col">Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let course of api.courses">
+                    <td class="w-15">
+                        <img [src]="'/assets/images/' + course.Image" class="img-fluid img-thumbnail">
+                    </td>
+                    <td>
+                        <p>{{course.Title}}</p>
+                        <p><small>{{course.Description}}</small></p>
+                    </td>
+                    <td>{{course.Time | slice:0:10}}</td>
+                    <td>{{course.Location.City}}</td>
+                    <td>{{course.AvailableSeats?.length || 0}}</td>
+                    <td>
+                        <a href="javascript:void(0);" (click)="editCourse(course)" data-toggle="modal" data-target="#editModal"><span class="fa fa-pencil-square-o mr-4 text-info" title="Edit"></span></a>
+                        <a href="javascript:void(0);" (click)="deleteCourse(course)"><span class="fa fa-minus-square-o text-danger" title="Delete"></span></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>   
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true" *ngIf="selected_course">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Event</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="title">Event Title</label>
+                    <input type="text" class="form-control" id="title" [(ngModel)]="selected_course.Title">
+                </div>
+                <div class="form-group">
+                    <label for="desc">Event Description</label>
+                    <textarea class="form-control" id="desc" [(ngModel)]="selected_course.Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="date">Event Date and Time</label>
+                    <input type="text" class="form-control" id="date" [(ngModel)]="selected_course.Time">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="country">Location - Country</label>
+                        <input type="text" class="form-control" id="country" [(ngModel)]="selected_course.Location.Country">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="state">Location - State</label>
+                        <input type="text" class="form-control" id="state" [(ngModel)]="selected_course.Location.State">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="city">Location - City</label>
+                        <input type="text" class="form-control" id="city" [(ngModel)]="selected_course.Location.City">
+                    </div>
+                </div>
+
+                <hr>
+                <h5 class="mt-4 mb-4">Available Seats</h5>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Seat Code" #newSeat>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="addSeat(newSeat.value)">Add</button>
+                    </div>
+                </div>
+                <div class="alert alert-info col-md-4" role="alert" *ngFor="let seat of selected_course.AvailableSeats">
+                    <strong>{{seat.id}}</strong>
+                    <button type="button" class="close" (click)="removeSeat(seat)">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" *ngIf="selected_course.Image">Save</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" *ngIf="!selected_course.Image" (click)="addCourse()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

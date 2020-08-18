@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { Go1Service } from '../app.service';
 import { Course } from '../course';
 
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
     filter = new BehaviorSubject<string>('');
 
     constructor(
-        public api: Go1Service
+        public api: Go1Service,
+        public router: Router,
     ) {
         this.filter.pipe(
             debounceTime(500),
@@ -49,6 +51,11 @@ export class HomeComponent implements OnInit {
                 console.error(err.status);
             }
         );
+    }
+
+    showDetails(course: Course): void {
+        this.api.selected_course = course;
+        this.router.navigateByUrl('/details');
     }
 
     countSeats(course: Course): number {

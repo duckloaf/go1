@@ -10,6 +10,7 @@ export class Go1Service {
     // Create variables that will mock data from a database
     // In real life, this data would be handled by API calls
     courses: Course[];
+    selected_course: Course;
 
     constructor(
         private http: HttpClient
@@ -31,9 +32,10 @@ export class Go1Service {
                 return of(this.courses);
             }
             // Filter by search string
+            // Search is case insensitive (everything is converted to lowercase)
             if(type === 'search') {
                 return of(this.courses.filter((item) => {
-                    return item.Title.includes(search) || item.Description.includes(search);
+                    return item.Title.toLowerCase().includes(search.toLowerCase()) || item.Description.toLowerCase().includes(search.toLowerCase());
                 }));
             }
             // Filter by city
@@ -56,6 +58,13 @@ export class Go1Service {
             }
         }
         
+    }
+
+    // This will mock an API call to retrieve the details for a single course.
+    // For this example, instead of hitting an endpoint, the selected course is stored
+    // in a variable, so this will be returned.
+    getCourseById(id: number): Observable<any> {
+        return of(this.selected_course);
     }
 
     addNewCourse(course: Course): void {

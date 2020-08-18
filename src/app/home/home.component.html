@@ -48,7 +48,7 @@
                 <div class="course">
                     <div class="course_image"><img [src]="'assets/images/co-' + (i + 1) + '.jpg'" alt=""></div>
                     <div class="course_body">
-                        <h3 class="course_title">{{course.Title}}</h3>
+                        <h3 class="course_title"><a href="javascript:void(0);" (click)="showDetails(course)">{{course.Title}}</a></h3>
                         <div class="course_teacher">{{course.Location.City}}</div>
                         <div class="course_text">
                             <p>{{course.Description}}</p>

@@ -1,0 +1,55 @@
+<app-breadcrumbs
+    [page_name]="'Course Details'">
+</app-breadcrumbs>
+
+<!-- Course -->
+
+<div class="course">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">                
+                <div class="course_container">
+                    <div class="course_title mt-4 mb-4">Software Training</div>
+                    <div class="course_image mb-4"><img src="/assets/images/co-1.jpg" alt=""></div>
+                    <p class="mr-4 mb-5">Lorem Ipsn gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit.</p>
+                </div>
+            </div>
+
+            <!-- Course Sidebar -->
+            <div class="col-lg-4">
+                <div class="sidebar mb-5">
+
+                    <!-- Feature -->
+                    <div class="sidebar_section">
+                        <div class="sidebar_section_title">Course Details</div>
+                        <div class="sidebar_feature">
+                            <!-- Features -->
+                            <div class="feature_list">
+
+                                <div class="feature d-flex flex-row align-items-center justify-content-start">
+                                    <div class="feature_title"><i class="fa fa-calendar" aria-hidden="true"></i><span>Date:</span></div>
+                                    <div class="feature_text ml-auto mt-4">{{details.Time |slice:0:10 }}</div>
+                                </div>
+
+                                <div class="feature d-flex flex-row align-items-center justify-content-start">
+                                    <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Time:</span></div>
+                                    <div class="feature_text ml-auto mt-4">{{formatTime(details.Time)}}</div>
+                                </div>
+
+                                <div class="feature d-flex flex-row align-items-center justify-content-start">
+                                    <div class="feature_title"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span>Availability:</span></div>
+                                    <div class="feature_text ml-auto mt-4">{{details.AvailableSeats?.length || 0}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar_section">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225555.7225202452!2d153.2289381319169!3d-27.953847072533897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b911a472b5d60b7%3A0x302a35af3deaf70!2sGold%20Coast%20QLD!5e0!3m2!1sen!2sau!4v1597724781112!5m2!1sen!2sau" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
