@@ -2,7 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { Go1Service } from '../app.service';
+import { TimeService } from '../time.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HomeComponent', () => {
     let component: HomeComponent;
@@ -11,8 +13,8 @@ describe('HomeComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
         declarations: [ HomeComponent ],
-        providers: [Go1Service],
-        imports: [HttpClientModule]
+        providers: [Go1Service, TimeService],
+        imports: [HttpClientModule, RouterTestingModule]
         })
         .compileComponents();
     }));
@@ -87,13 +89,13 @@ describe('HomeComponent', () => {
     });
 
     it('should correctly format the time for a course', () => {
-        expect(component.formatTime(component.courses[0])).toEqual('12:30 PM');
+        expect(component.time_format.formatTime(component.courses[0])).toEqual('12:30 PM');
     });
     
     it('should pad numbers less than 10 with a leading zero', () => {
-        expect(component.zeroPad(1)).toEqual('01');
-        expect(component.zeroPad(10)).toEqual('10');
-        expect(component.zeroPad(1234)).toEqual('34');
+        expect(component.time_format.zeroPad(1)).toEqual('01');
+        expect(component.time_format.zeroPad(10)).toEqual('10');
+        expect(component.time_format.zeroPad(1234)).toEqual('34');
     });
 
     it('should populate the location select box with the correct number of cities', () => {

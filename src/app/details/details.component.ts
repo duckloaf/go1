@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Go1Service } from '../app.service';
+import { TimeService } from '../time.service';
 import { Course } from '../course';
 
 @Component({
@@ -11,7 +12,8 @@ export class DetailsComponent implements OnInit {
     details: Course;
 
     constructor(
-        public api: Go1Service
+        public api: Go1Service,
+        public time_format: TimeService,
     ) { }
 
     ngOnInit(): void {
@@ -29,12 +31,4 @@ export class DetailsComponent implements OnInit {
             }
         );
     }
-
-    formatTime(time_string: string): string {
-        let d = new Date(time_string);
-        const offest = (d.getTimezoneOffset() / 60) * (-1);
-        d.setHours(d.getHours() + offest);
-        return d.getUTCHours() + ":" + ("0" + d.getUTCMinutes()).slice(-2);
-    }
-
 }

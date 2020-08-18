@@ -4,14 +4,14 @@
 
 <!-- Course -->
 
-<div class="course">
+<div class="course" *ngIf="details">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">                
                 <div class="course_container">
-                    <div class="course_title mt-4 mb-4">{{details.Title}}</div>
-                    <div class="course_image mb-4"><img [src]="'/assets/images/' + details.Image" alt=""></div>
-                    <p class="mr-4 mb-5">{{details.Description}}</p>
+                    <div class="course_title mt-4 mb-4" id="title">{{details.Title}}</div>
+                    <div class="course_image mb-4" id="image"><img [src]="'/assets/images/' + details.Image" alt=""></div>
+                    <p class="mr-4 mb-5" id="desc">{{details.Description}}</p>
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
 
                                 <div class="feature d-flex flex-row align-items-center justify-content-start">
                                     <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Time:</span></div>
-                                    <div class="feature_text ml-auto mt-4">{{formatTime(details.Time)}}</div>
+                                    <div class="feature_text ml-auto mt-4">{{time_format.formatTime(details)}}</div>
                                 </div>
 
                                 <div class="feature d-flex flex-row align-items-center justify-content-start">

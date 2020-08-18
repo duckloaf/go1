@@ -37,10 +37,4 @@ describe('HeaderComponent', () => {
         let navElement = fixture.debugElement.query(By.css('.main_nav'));
         expect(navElement.children.length).toEqual(2);
     });
-
-    it('should set the "home" nav menu to active by default', () => {
-        let navElement = fixture.debugElement.query(By.css('.main_nav'));
-        console.log(navElement)
-        expect(navElement.children[0].nativeNode.className).toEqual('active');
-    });
 });
