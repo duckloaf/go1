@@ -9,9 +9,9 @@
         <div class="row">
             <div class="col-lg-8">                
                 <div class="course_container">
-                    <div class="course_title mt-4 mb-4">Software Training</div>
-                    <div class="course_image mb-4"><img src="/assets/images/co-1.jpg" alt=""></div>
-                    <p class="mr-4 mb-5">Lorem Ipsn gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit.</p>
+                    <div class="course_title mt-4 mb-4">{{details.Title}}</div>
+                    <div class="course_image mb-4"><img [src]="'/assets/images/' + details.Image" alt=""></div>
+                    <p class="mr-4 mb-5">{{details.Description}}</p>
                 </div>
             </div>
 

@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Go1Service } from '../app.service';
+import { TimeService } from '../time.service';
 import { Course } from '../course';
 
 @Component({
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
 
     constructor(
         public api: Go1Service,
+        public time_format: TimeService,
         public router: Router,
     ) {
         this.filter.pipe(
@@ -64,32 +66,6 @@ export class HomeComponent implements OnInit {
         } else {
             return course.AvailableSeats.length;
         }
-    }
-
-    formatTime(course: Course): string {
-        // Convert course UTC to local time and return a formatted time string
-        // Format like "1:23 AM" or 4:06 PM"
-        let d = new Date(course.Time);
-        const offest = (d.getTimezoneOffset() / 60) * (-1);
-        d.setHours(d.getHours() + offest);
-
-        let ampm = "AM";
-        let hours = 0;
-        if(d.getUTCHours() > 12) {
-            ampm = "PM";
-            hours = d.getUTCHours() - 12;
-        } else {
-            if(d.getUTCHours() === 12) {
-                ampm = "PM";
-            }
-            hours = d.getUTCHours();
-        }
-        return this.zeroPad(hours) + ":" + this.zeroPad(d.getUTCMinutes()) + " " + ampm;
-    }
-    // Used for formatting date strings by adding a leading '0' to a number less than 10
-    zeroPad(input: number): string {
-        var padded = "0"+input;
-        return padded.slice(-2);
     }
 
     doSearch(searchString: string): void {

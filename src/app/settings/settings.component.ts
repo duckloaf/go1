@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Go1Service } from '../app.service';
+import { TimeService } from '../time.service';
 import { Course, Seat } from '../course';
 
 @Component({
@@ -11,7 +12,8 @@ export class SettingsComponent implements OnInit {
     selected_course: Course;
 
     constructor(
-        public api: Go1Service
+        public api: Go1Service,
+        public time_format: TimeService
     ) { }
 
     ngOnInit(): void {

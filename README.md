@@ -20,7 +20,3 @@ There are a mix of functional tests as well as UI element tests. All components 
 
 ## To Do
 * Search by date
-* Event detail page (with map)
-* **Settings menu** - Ability to add a new event
-* **Settings menu** - Ability to edit an existing event (change title, description, image, available seats, location)
-* **Settings menu** - Ability to delete an event
