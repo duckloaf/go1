@@ -10,6 +10,7 @@ import { Course, Seat } from '../course';
 })
 export class SettingsComponent implements OnInit {
     selected_course: Course;
+    calendar_date: Date;
 
     constructor(
         public api: Go1Service,
@@ -17,7 +18,8 @@ export class SettingsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        
+        // Set the default calendar selection to the current date and time
+        this.calendar_date = new Date();
     }
 
     editCourse(course: Course): void {
@@ -38,6 +40,8 @@ export class SettingsComponent implements OnInit {
         // Randomly assign an image to the new course
         let img_no = Math.floor(Math.random() * 7) + 9;
         this.selected_course.Image = `co-${img_no}.jpg`;
+        // Convert the date into ISO format
+        this.selected_course.Time = this.time_format.formatISOString(this.calendar_date);
         // Call the API to insert the details of the new course
         this.api.courses.push(this.selected_course);
     }

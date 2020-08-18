@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +31,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        NgbModule,
         DlDateTimeDateModule,
         DlDateTimePickerModule
     ],

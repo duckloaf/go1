@@ -56,6 +56,12 @@ export class Go1Service {
                     return item.Location.Country.includes(search);
                 }));
             }
+            // Filter by date
+            if(type === 'date') {
+                return of(this.courses.filter((item) => {
+                    return item.Time.includes(search);
+                }));
+            }
         }
         
     }

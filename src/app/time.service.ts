@@ -27,6 +27,11 @@ export class TimeService {
         }
         return this.zeroPad(hours) + ":" + this.zeroPad(d.getUTCMinutes()) + " " + ampm;
     }
+
+    formatISOString(date_object: Date) {
+        let d = new Date(date_object);
+        return d.toISOString();
+    }
     
     // Used for formatting date strings by adding a leading '0' to a number less than 10
     // Example: "1" -> "01"

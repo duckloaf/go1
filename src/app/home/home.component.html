@@ -9,7 +9,7 @@
                         <div class="home_slider_form_container">
                             <form action="#" id="home_search_form_1" class="home_search_form d-flex flex-lg-row flex-column align-items-center justify-content-between">
                                 <div class="d-flex flex-row align-items-center justify-content-start">
-                                    <input type="search" class="home_search_input" placeholder="Keyword Search" required="required" (input)="filter.next($event.target.value)">
+                                    <input type="search" class="home_search_input" placeholder="Keyword Search" required="required" (input)="filter_text.next($event.target.value)">
                                     <select class="dropdown_item_select home_search_input" #locationSearch (change)="onLocationSelected(locationSearch.value)">
                                         <option value='' selected>Select Location</option>
                                         <optgroup label="Cities">
@@ -22,7 +22,7 @@
                                             <option *ngFor="let country of countries" value="country_{{country}}">{{country}}</option>
                                         </optgroup>
                                     </select>
-                                    <input type="search" class="home_search_input" placeholder="Date Search" required="required" id="date_search">
+                                    <input type="search" class="home_search_input" placeholder="Date Search" required="required" (input)="filter_date.next($event.target.value)">
                                 </div>
                             </form>
                         </div>

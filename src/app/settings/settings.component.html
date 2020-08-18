@@ -59,9 +59,21 @@
                     <label for="desc">Event Description</label>
                     <textarea class="form-control" id="desc" [(ngModel)]="selected_course.Description"></textarea>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="date">Event Date and Time</label>
                     <input type="text" class="form-control" id="date" [(ngModel)]="selected_course.Time">
+                </div> -->
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="date">Event Date and Time</label>
+                    <dl-date-time-picker
+                        id="date"
+                        startView="day"
+                        maxView="year"
+                        minView="minute"
+                        minuteStep="5"
+                        [(ngModel)]="calendar_date">
+                    </dl-date-time-picker>
+                    {{calendar_date}}
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">

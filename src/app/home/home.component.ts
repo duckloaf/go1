@@ -16,17 +16,23 @@ export class HomeComponent implements OnInit {
     cities: string[];
     states: string[];
     countries: string[];
-    filter = new BehaviorSubject<string>('');
+    filter_text = new BehaviorSubject<string>('');
+    filter_date = new BehaviorSubject<string>('');
 
     constructor(
         public api: Go1Service,
         public time_format: TimeService,
         public router: Router,
     ) {
-        this.filter.pipe(
+        this.filter_text.pipe(
             debounceTime(500),
             distinctUntilChanged()
-        ).subscribe(result => this.doSearch(result));
+        ).subscribe(result => this.doSearch(result, 'search'));
+            
+        this.filter_date.pipe(
+            debounceTime(500),
+            distinctUntilChanged()
+            ).subscribe(result => this.doSearch(result, 'date'));
     }
 
     ngOnInit(): void {
@@ -34,11 +40,9 @@ export class HomeComponent implements OnInit {
     }
 
     getCourses(search: string, type: string): void {
-        console.log(search + ' ' + type);
         this.api.getCourses(search, type).subscribe(
             data => { 
                 this.courses = data;
-                console.log("Courses", this.courses);
                 // If there are no filters applied, populate the location filters
                 if(type === '') {
                     // Populate the cities for the location filter
@@ -68,8 +72,8 @@ export class HomeComponent implements OnInit {
         }
     }
 
-    doSearch(searchString: string): void {
-        this.getCourses(searchString, 'search');
+    doSearch(searchString: string, searchType: string): void {
+        this.getCourses(searchString, searchType);
     }
 
     onLocationSelected(location: string): void {
